@@ -2,9 +2,10 @@
     style="background: white;">
     <img src="/assets/images/logo.png" alt="" srcset="" style="max-height: 70px;">
     <nav class="d-inline-flex ms-md-auto text-uppercase " style="font-size: larger;">
-        <a class="me-3 p-2 text-dark text-decoration-none" href="#">HOME</a>
-        <a class="me-3 p-2 text-dark text-decoration-none" href="#">SHOP</a>
-        <a class="me-3 p-2 text-dark text-decoration-none" href="#">CONTANCT</a>
+        <a class="me-3 p-2  text-decoration-none" [routerLink]="['/']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">HOME</a>
+        <a class="me-3 p-2  text-decoration-none" routerLink="/Shop" routerLinkActive="active">SHOP</a>
+        <a class="me-3 p-2  text-decoration-none">CONTANCT</a>
     </nav>
     <div class="d-flex align-item-center">
         <a class="position-relative">
