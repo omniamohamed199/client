@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <section class="col-3">
+        <section class="col-3" *ngIf="Types && Brands">
             <h5 class="text-warning">Sort</h5>
             <select class="custom-select my-3" aria-label="Default select example"
                 (change)="OnSortSelected($event.target.value)">
@@ -18,7 +18,7 @@
                     [value]="item.id" (click)="OnTypeSelected(item.id)">{{item.name}}</li>
             </ul>
         </section>
-        <section class="col-9">
+        <section class="col-9" *ngIf="products">
             <div class="d-flex justify-content-between align-items-center">
 
                 <app-pager-header [PageNumber]="ShopParams.PageNumber" [PageSize]="ShopParams.PageSize"

@@ -22,7 +22,7 @@ export class ShopComponent implements OnInit {
     { 'name': 'Price : Low to High', value: 'priceAsc' },
     { 'name': 'Price : High to Low', value: 'priceDesc' }
   ]
-  @ViewChild('search', { static: true }) SearchTerm: ElementRef
+  @ViewChild('search', { static: false }) SearchTerm: ElementRef
   constructor(private shopservice: ShopService) { }
 
   ngOnInit(): void {
