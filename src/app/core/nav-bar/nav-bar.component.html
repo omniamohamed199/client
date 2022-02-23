@@ -8,9 +8,9 @@
         <a class="me-3 p-2  text-decoration-none">CONTANCT</a>
     </nav>
     <div class="d-flex align-item-center">
-        <a class="position-relative">
+        <a class="position-relative" routerLink="/Basket">
             <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
-            <div class="cart-no">5</div>
+            <div *ngIf="(basket$ |async) as Basket" class="cart-no">{{Basket.items.length}}</div>
         </a>
         <button type="button" class="btn btn-outline-secondary mr-2">Login</button>
         <button type="button" class="btn btn-outline-secondary mr-2">Sign-up</button>

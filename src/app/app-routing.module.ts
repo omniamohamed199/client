@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, data: { breadcrumb: 'Home' } },
   { path: 'Shop', loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule) },
+  { path: 'Basket', loadChildren: () => import('./basket/basket.module').then(mod => mod.BasketModule) },
+  { path: 'Checkout', loadChildren: () => import('./checkout/checkout.module').then(mod => mod.CheckoutModule) },
   { path: 'Notfound', component: NotfoundComponent },
   { path: 'server-error', component: ServerErrorComponent },
   { path: '**', component: HomeComponent, pathMatch: 'full' },
