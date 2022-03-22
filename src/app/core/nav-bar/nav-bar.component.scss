@@ -16,4 +16,26 @@ a
 &.active{
     color: orange;
 }
+
+}
+.marker{
+  transition: all .2s ease-in;
+}
+a:nth-child(1)[class='active']
+{
+  .marker{
+    width: auto;
+    height: 10px;
+    background-color: black;
+
+  }
+}
+a:nth-child(2)[class='active']
+{
+  .marker{
+    width: 10px;
+    transform: translateX(100px);
+    height: 100px;
+    background-color: black;
+  }
 }

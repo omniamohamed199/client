@@ -1,9 +1,11 @@
-<div class="d-flex flex-column flex-md-row align-items-center  pb-3 mb-4 border-bottom justify-content-between fixed-top "
+<div class="d-flex flex-column flex-md-row align-items-center  pb-3 mb-4 border-bottom justify-content-between fixed-top px-3 "
     style="background: white;">
     <img src="/assets/images/logo.png" alt="" srcset="" style="max-height: 70px;">
     <nav class="d-flex  text-uppercase align-items-center justify-content-center " style="font-size: larger;">
+        <div class="marker"></div>
         <a class="me-3 p-2  text-decoration-none" [routerLink]="['/']" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact:true}">HOME</a>
+            [routerLinkActiveOptions]="{exact:true}">HOME
+        </a>
         <a class="me-3 p-2  text-decoration-none" routerLink="/Shop" routerLinkActive="active">SHOP</a>
         <a class="me-3 p-2  text-decoration-none">CONTANCT</a>
     </nav>
@@ -12,7 +14,33 @@
             <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
             <div *ngIf="(basket$ |async) as Basket" class="cart-no">{{Basket.items.length}}</div>
         </a>
-        <button type="button" class="btn btn-outline-secondary mr-2">Login</button>
-        <button type="button" class="btn btn-outline-secondary mr-2">Sign-up</button>
+        <ng-container *ngIf="(currentUser$ | async) == null">
+            <button type="button" class="btn btn-outline-secondary mr-2" routerLink="/account/login">Login</button>
+            <button type="button" class="btn btn-outline-secondary mr-2" routerLink="/account/register">Sign-up</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser$ | async as user">
+            <div class="dropdown ml-3" dropdown>
+
+                <a class="dropdown-toggle text-decoration-none" dropdownToggle style="cursor: pointer;">
+                    <strong>welcom {{user.displayName}}</strong>
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                    <a routerLink="/Basket" class="dropdown-item d-flex align-items-center py-2">
+                        <i class="fa fa-shopping-cart mr-3"></i> View Basket
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center py-2">
+                        <i class="fa fa-history mr-3"></i> View Orders
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a (click)="LogOut()" class="dropdown-item d-flex align-items-center py-2">
+                        <i class="fa fa-sign-out mr-3"></i> LogOut
+                    </a>
+                </div>
+            </div>
+
+
+        </ng-container>
+
     </div>
 </div>
