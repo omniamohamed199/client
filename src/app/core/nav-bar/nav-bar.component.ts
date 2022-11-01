@@ -8,18 +8,22 @@ import { IUser } from 'src/app/shared/models/User';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  basket$: Observable<IBasket>
-  currentUser$: Observable<IUser>
-  constructor(private basketService: BasketService, private accountservice: AccountService) { }
+  basket$: Observable<IBasket>;
+  currentUser$: Observable<IUser>;
+  today = Date.now();
+  constructor(
+    private basketService: BasketService,
+    private accountservice: AccountService
+  ) {}
 
   ngOnInit(): void {
-    this.basket$ = this.basketService.basket$
-    this.currentUser$ = this.accountservice.currentUser$
+    this.basket$ = this.basketService.basket$;
+    this.currentUser$ = this.accountservice.currentUser$;
   }
   LogOut() {
-    this.accountservice.logout()
+    this.accountservice.logout();
   }
 }
